@@ -778,7 +778,9 @@ class CourseMode(models.Model):
         GeneratedCertificate records with mode='audit' which are
         eligible.
         """
-        ineligible_modes = [cls.AUDIT]
+        # YAGO: We currently need AUDIT to be eligible for Certificates...
+        # ineligible_modes = [cls.AUDIT]
+        ineligible_modes = []
 
         if settings.FEATURES['DISABLE_HONOR_CERTIFICATES']:
             # Adding check so that we can regenerate the certificate for learners who have

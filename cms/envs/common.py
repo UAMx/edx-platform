@@ -184,7 +184,7 @@ FEATURES = {
     'DISABLE_START_DATES': False,
 
     # email address for studio staff (eg to request course creation)
-    'STUDIO_REQUEST_EMAIL': '',
+    'STUDIO_REQUEST_EMAIL': 'uamx@uam.es',
 
     # Segment - must explicitly turn it on for production
     'CMS_SEGMENT_KEY': None,
