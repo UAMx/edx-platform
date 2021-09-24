@@ -420,7 +420,7 @@ class CourseFields(object):
     )
     discussion_sort_alpha = Boolean(
         display_name=_("Discussion Sorting Alphabetical"),
-        scope=Scope.settings, default=False,
+        scope=Scope.settings, default=True,
         help=_(
             "Enter true or false. If true, discussion categories and subcategories are sorted alphabetically. "
             "If false, they are sorted chronologically by creation date and time."
@@ -518,7 +518,7 @@ class CourseFields(object):
     allow_anonymous = Boolean(
         display_name=_("Allow Anonymous Discussion Posts"),
         help=_("Enter true or false. If true, students can create discussion posts that are anonymous to all users."),
-        scope=Scope.settings, default=True
+        scope=Scope.settings, default=False
     )
     allow_anonymous_to_peers = Boolean(
         display_name=_("Allow Anonymous Discussion Posts to Peers"),
@@ -532,6 +532,7 @@ class CourseFields(object):
         display_name=_("Advanced Module List"),
         help=_("Enter the names of the advanced modules to use in your course."),
         scope=Scope.settings
+	default = ["word_cloud", "poll", "survey", "edx_sga", "ubcpi", "freetextresponse"]
     )
     has_children = True
     info_sidebar_name = String(
@@ -751,7 +752,7 @@ class CourseFields(object):
     invitation_only = Boolean(
         display_name=_("Invitation Only"),
         help=_("Whether to restrict enrollment to invitation by the course staff."),
-        default=False,
+        default=True,
         scope=Scope.settings
     )
 
@@ -951,7 +952,7 @@ class CourseFields(object):
             "subsection until learners earn a minimum score in another, "
             "prerequisite subsection."
         ),
-        default=False,
+        default=True,
         scope=Scope.settings
     )
 

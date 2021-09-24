@@ -197,7 +197,7 @@ class InheritanceMixin(XBlockMixin):
             "this course-wide setting is changed."
         ),
         scope=Scope.settings,
-        default=False
+        default=True
     )
     edxnotes = Boolean(
         display_name=_("Enable Student Notes"),
