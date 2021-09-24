@@ -531,7 +531,7 @@ class CourseFields(object):
     advanced_modules = List(
         display_name=_("Advanced Module List"),
         help=_("Enter the names of the advanced modules to use in your course."),
-        scope=Scope.settings
+        scope=Scope.settings,
 	default = ["word_cloud", "poll", "survey", "edx_sga", "ubcpi", "freetextresponse"]
     )
     has_children = True
