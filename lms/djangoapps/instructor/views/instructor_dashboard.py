@@ -132,7 +132,6 @@ def instructor_dashboard_2(request, course_id):
     reports_enabled = configuration_helpers.get_value('SHOW_ECOMMERCE_REPORTS', False)
 
     sections = []
-
     if access['staff']:
         sections.extend([
             _section_course_info(course, access),
@@ -140,7 +139,6 @@ def instructor_dashboard_2(request, course_id):
             _section_cohort_management(course, access),
             _section_discussions_management(course, access),
             _section_student_admin(course, access),
-            _section_data_download(course, access),
         ])
     if access['data_researcher']:
         sections.append(_section_data_download(course, access))
@@ -635,7 +633,7 @@ def _section_data_download(course, access):
             'export_ora2_submission_files', kwargs={'course_id': six.text_type(course_key)}
         ),
     }
-    if not access.get('data_researcher') and not access.get('staff'):
+    if not access.get('data_researcher'):
         section_data['is_hidden'] = True
     return section_data
 
