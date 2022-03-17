@@ -930,8 +930,8 @@ class RegistrationFormFactory(object):
         separate_honor_and_tos = self._is_field_visible("terms_of_service")
         # Separate terms of service and honor code checkboxes
         if separate_honor_and_tos:
-            terms_label = _(u"Honor Code")
-            terms_link = marketing_link("HONOR")
+            terms_label = _(u"Privacy Policy")
+            terms_link = marketing_link("PRIVACY")
 
         # Combine terms of service and honor code checkboxes
         else:
@@ -943,7 +943,7 @@ class RegistrationFormFactory(object):
         # Translators: "Terms of Service" is a legal document users must agree to
         # in order to register a new account.
         label = Text(_(
-            u"I agree to the {platform_name} {terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+            u"I consent to the processing of my personal data in accordance with the {platform_name} {terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
         )).format(
             platform_name=configuration_helpers.get_value("PLATFORM_NAME", settings.PLATFORM_NAME),
             terms_of_service=terms_label,
@@ -1008,7 +1008,7 @@ class RegistrationFormFactory(object):
 
         # Translators: "Terms of service" is a legal document users must agree to
         # in order to register a new account.
-        label = Text(_(u"I agree to the {platform_name} {tos_link_start}{terms_of_service}{tos_link_end}")).format(
+        label = Text(_(u"I have read and agree to the {platform_name} {tos_link_start}{terms_of_service}{tos_link_end}")).format(
             platform_name=configuration_helpers.get_value("PLATFORM_NAME", settings.PLATFORM_NAME),
             terms_of_service=terms_label,
             tos_link_start=HTML(u"<a href='{terms_link}' rel='noopener' target='_blank'>").format(
