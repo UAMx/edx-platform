@@ -331,8 +331,7 @@ def get_course_about_section(request, course, section_key):
 
     # Many of these are stored as html files instead of some semantic
     # markup. This can change without effecting this interface when we find a
-    # good format for defining so many snippets of text/html.
-
+    # good format for defining so many snippets of text/html.    
     html_sections = {
         'short_description',
         'description',
@@ -374,6 +373,8 @@ def get_course_about_section(request, course, section_key):
 
             if about_module is not None:
                 try:
+                    # disable notes in course about
+                    about_module._field_data_cache["edxnotes_visibility"]=False;
                     html = about_module.render(STUDENT_VIEW).content
                 except Exception:  # pylint: disable=broad-except
                     html = render_to_string('courseware/error-message.html', None)
